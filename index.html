@@ -9,15 +9,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      color-scheme: light dark;
-      --bg: #0f172a;
-      --card-bg: #111827;
-      --muted: #cbd5e1;
-      --accent: #38bdf8;
-      --accent-strong: #22d3ee;
+      color-scheme: dark;
+      --bg: #0d0d10;
+      --panel: #16161a;
+      --card-bg: #1c1c21;
+      --muted: #cfd2d6;
+      --accent: #beaf87;
+      --accent-soft: rgba(190, 175, 135, 0.2);
+      --accent-strong: #e3d6ae;
       --border: rgba(255, 255, 255, 0.08);
-      --text: #e2e8f0;
-      --shadow: 0 20px 35px rgba(0, 0, 0, 0.45);
+      --text: #f5f5f7;
+      --shadow: 0 20px 40px rgba(0, 0, 0, 0.55);
     }
 
     * {
@@ -28,8 +30,9 @@
       margin: 0;
       min-height: 100vh;
       font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: radial-gradient(circle at 25% 20%, rgba(56, 189, 248, 0.15), transparent 30%),
-        radial-gradient(circle at 80% 0%, rgba(34, 211, 238, 0.2), transparent 25%),
+      background: radial-gradient(circle at 20% 15%, rgba(190, 175, 135, 0.18), transparent 32%),
+        radial-gradient(circle at 85% 10%, rgba(255, 255, 255, 0.05), transparent 28%),
+        radial-gradient(circle at 45% 70%, rgba(255, 255, 255, 0.04), transparent 40%),
         var(--bg);
       color: var(--text);
       padding: 32px;
@@ -45,7 +48,7 @@
       gap: 16px;
       padding: 24px;
       border-radius: 20px;
-      background: linear-gradient(145deg, rgba(17, 24, 39, 0.7), rgba(15, 23, 42, 0.8));
+      background: linear-gradient(145deg, rgba(28, 28, 33, 0.9), rgba(22, 22, 26, 0.95));
       border: 1px solid var(--border);
       box-shadow: var(--shadow);
     }
@@ -70,9 +73,9 @@
     }
 
     .badge {
-      background: rgba(56, 189, 248, 0.12);
+      background: var(--accent-soft);
       color: var(--accent-strong);
-      border: 1px solid rgba(56, 189, 248, 0.3);
+      border: 1px solid rgba(190, 175, 135, 0.35);
       padding: 8px 12px;
       border-radius: 999px;
       font-size: 12px;
@@ -90,11 +93,12 @@
     }
 
     .card {
-      background: linear-gradient(180deg, rgba(17, 24, 39, 0.7), rgba(12, 18, 32, 0.9));
+      background: radial-gradient(circle at 10% 10%, rgba(255, 255, 255, 0.04), transparent 30%),
+        linear-gradient(180deg, rgba(34, 34, 40, 0.95), rgba(20, 20, 24, 0.98));
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 18px 18px 8px;
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
     }
 
     .card header {
@@ -133,11 +137,12 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       background: rgba(255, 255, 255, 0.02);
-      transition: border-color 150ms ease, transform 150ms ease;
+      transition: border-color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
     }
 
     .vendor:hover {
-      border-color: rgba(56, 189, 248, 0.35);
+      border-color: rgba(190, 175, 135, 0.45);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
       transform: translateY(-2px);
     }
 
@@ -159,8 +164,8 @@
       text-transform: uppercase;
       letter-spacing: 0.06em;
       color: var(--accent);
-      background: rgba(56, 189, 248, 0.12);
-      border: 1px solid rgba(56, 189, 248, 0.3);
+      background: var(--accent-soft);
+      border: 1px solid rgba(190, 175, 135, 0.35);
       padding: 6px 8px;
       border-radius: 999px;
     }
