@@ -1,3 +1,353 @@
-blah blahas dfad
-asldkfja;lsdfj ;alskdfn bkasd.jif;<label for="alskdfsf;las
-alskdfj;laskdj f;"></label>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Preferred Vendors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0d0d10;
+      --panel: #16161a;
+      --card-bg: #1c1c21;
+      --muted: #cfd2d6;
+      --accent: #beaf87;
+      --accent-soft: rgba(190, 175, 135, 0.2);
+      --accent-strong: #e3d6ae;
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #f5f5f7;
+      --shadow: 0 20px 40px rgba(0, 0, 0, 0.55);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at 20% 15%, rgba(190, 175, 135, 0.18), transparent 32%),
+        radial-gradient(circle at 85% 10%, rgba(255, 255, 255, 0.05), transparent 28%),
+        radial-gradient(circle at 45% 70%, rgba(255, 255, 255, 0.04), transparent 40%),
+        var(--bg);
+      color: var(--text);
+      padding: 32px;
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto 64px auto;
+    }
+
+    header {
+      display: grid;
+      gap: 16px;
+      padding: 24px;
+      border-radius: 20px;
+      background: linear-gradient(145deg, rgba(28, 28, 33, 0.9), rgba(22, 22, 26, 0.95));
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 38px);
+      letter-spacing: -0.02em;
+    }
+
+    header p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .badge {
+      background: var(--accent-soft);
+      color: var(--accent-strong);
+      border: 1px solid rgba(190, 175, 135, 0.35);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      letter-spacing: 0.02em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .card {
+      background: radial-gradient(circle at 10% 10%, rgba(255, 255, 255, 0.04), transparent 30%),
+        linear-gradient(180deg, rgba(34, 34, 40, 0.95), rgba(20, 20, 24, 0.98));
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px 18px 8px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
+    }
+
+    .card header {
+      padding: 0 0 12px 0;
+      box-shadow: none;
+      border: 0;
+      background: transparent;
+      grid-auto-flow: column;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    .card h2 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .card small {
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .vendors {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .vendor {
+      padding: 12px 12px 10px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.02);
+      transition: border-color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
+    }
+
+    .vendor:hover {
+      border-color: rgba(190, 175, 135, 0.45);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .vendor .name-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .vendor h3 {
+      margin: 0;
+      font-size: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    .tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border: 1px solid rgba(190, 175, 135, 0.35);
+      padding: 6px 8px;
+      border-radius: 999px;
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 6px 12px;
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    .contact a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .contact a:hover {
+      color: var(--accent-strong);
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 36px;
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      body {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>Trusted Preferred Vendors</h1>
+      <p>
+        A curated list of vendors we trust for reliable work, clear communication,
+        and excellent service. Save this page or share it with anyone who needs a
+        recommendation.
+      </p>
+      <div class="badges">
+        <span class="badge">Curated &amp; Verified</span>
+        <span class="badge">Local &amp; Regional Coverage</span>
+        <span class="badge">Updated as Vendors Grow</span>
+      </div>
+    </header>
+
+    <div id="categories" class="grid" role="list"></div>
+
+    <footer>
+      Need a new category added? Update the vendor list in the script, refresh, and share.
+    </footer>
+  </div>
+
+  <script>
+    const vendorData = [
+      {
+        category: 'Electricians',
+        description: 'Certified pros for installations, repairs, and inspections.',
+        vendors: [
+          {
+            name: 'Brightline Electrical Co.',
+            serviceType: 'Residential & Commercial',
+            phone: '(555) 214-8890',
+            email: 'service@brightlineelectrical.com',
+            website: 'https://brightlineelectrical.com'
+          },
+          {
+            name: 'ArcSafe Electric',
+            serviceType: 'Panel upgrades & emergency service',
+            phone: '(555) 311-7741',
+            email: 'dispatch@arcsafe.com',
+            website: 'https://arcsafe.com'
+          }
+        ]
+      },
+      {
+        category: 'General Cleaning Services',
+        description: 'Recurring maintenance, move-in/move-out, and deep cleaning.',
+        vendors: [
+          {
+            name: 'FreshNest Cleaning',
+            serviceType: 'Residential deep cleans',
+            phone: '(555) 440-6722',
+            email: 'hello@freshnestcleaning.com',
+            website: 'https://freshnestcleaning.com'
+          },
+          {
+            name: 'CleanSlate Facility Care',
+            serviceType: 'Office janitorial & floor care',
+            phone: '(555) 129-0033',
+            email: 'support@cleanslatecare.com',
+            website: 'https://cleanslatecare.com'
+          }
+        ]
+      },
+      {
+        category: 'Chimney Repair',
+        description: 'Inspection, cleaning, liners, and masonry repair.',
+        vendors: [
+          {
+            name: 'Skyline Chimney Works',
+            serviceType: 'Certified sweeps & cap installs',
+            phone: '(555) 808-1440',
+            email: 'team@skylinechimney.com',
+            website: 'https://skylinechimney.com'
+          },
+          {
+            name: 'HearthGuard Specialists',
+            serviceType: 'Chimney relining & draft troubleshooting',
+            phone: '(555) 982-1005',
+            email: 'service@hearthguard.com',
+            website: 'https://hearthguard.com'
+          }
+        ]
+      },
+      {
+        category: 'Foundation Inspection',
+        description: 'Structural assessments and moisture diagnostics.',
+        vendors: [
+          {
+            name: 'TrueLevel Structural',
+            serviceType: 'Foundation inspections & reports',
+            phone: '(555) 622-4877',
+            email: 'info@truelevelstructural.com',
+            website: 'https://truelevelstructural.com'
+          },
+          {
+            name: 'Bedrock Integrity Group',
+            serviceType: 'Pier & beam evaluations',
+            phone: '(555) 700-9120',
+            email: 'contact@bedrockintegrity.com',
+            website: 'https://bedrockintegrity.com'
+          }
+        ]
+      }
+    ];
+
+    const categoriesContainer = document.getElementById('categories');
+
+    vendorData.forEach(({ category, description, vendors }) => {
+      const card = document.createElement('section');
+      card.className = 'card';
+      card.setAttribute('role', 'listitem');
+
+      card.innerHTML = `
+        <header>
+          <div>
+            <small>Category</small>
+            <h2>${category}</h2>
+          </div>
+          <span class="tag">${vendors.length} vendor${vendors.length !== 1 ? 's' : ''}</span>
+        </header>
+        <p style="color: var(--muted); margin: 0 0 12px 0; line-height: 1.6;">${description}</p>
+        <ul class="vendors">
+          ${vendors
+            .map(
+              (vendor) => `
+                <li class="vendor">
+                  <div class="name-row">
+                    <h3>${vendor.name}</h3>
+                    <span class="tag">${vendor.serviceType}</span>
+                  </div>
+                  <div class="contact">
+                    <span>📞 <a href="tel:${vendor.phone.replace(/[^0-9+]/g, '')}">${vendor.phone}</a></span>
+                    <span>✉️ <a href="mailto:${vendor.email}">${vendor.email}</a></span>
+                    <span>🌐 <a href="${vendor.website}" target="_blank" rel="noreferrer">Website</a></span>
+                  </div>
+                </li>
+              `
+            )
+            .join('')}
+        </ul>
+      `;
+
+      categoriesContainer.appendChild(card);
+    });
+  </script>
+</body>
+</html>
